@@ -1,4 +1,5 @@
 import "./sidebar.css";
+import { Users } from "../../dummyData";
 import {
 	RssFeed,
 	WorkOutline,
@@ -10,6 +11,7 @@ import {
 	PlayCircleFilledOutlined,
 	Chat,
 } from "@mui/icons-material";
+import Sidefriend from "../sidefriend/Sidefriend";
 
 const Sidebar = () => {
 	return (
@@ -56,62 +58,9 @@ const Sidebar = () => {
 				<button className="sidebarButton">Show More</button>
 				<hr className="sidebarHr" />
 				<ul className="sidebarFriendList">
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
-					<li className="sidebarFriend">
-						<img
-							src="/assets/profile-2.jpg"
-							alt=""
-							className="sidebarFriendImg"
-						/>
-						<span className="sidebarFriendName">CodeBreaker</span>
-					</li>
+					{Users.map((f) => {
+						return <Sidefriend key={f.id} friend={f} />;
+					})}
 				</ul>
 			</div>
 		</div>
