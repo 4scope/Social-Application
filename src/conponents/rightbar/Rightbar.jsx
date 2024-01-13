@@ -1,11 +1,10 @@
 import './rightbar.css';
 import Online from '../online/Online';
 import { Users } from '../../dummyData';
-import { Home } from '@mui/icons-material';
 import Userfriend from '../userFriend/Userfriend';
 
-const Rightbar = () => {
-	const HomeRightBar = ({ profile }) => {
+const Rightbar = ({ profile }) => {
+	const HomeRightBar = () => {
 		return (
 			<>
 				<div className="birthdayContainer">
@@ -76,7 +75,7 @@ const Rightbar = () => {
 	return (
 		<div className="rightbar">
 			<div className="rightbarWrapper">
-				<ProfileRightBar />
+				{profile ? <ProfileRightBar /> : <HomeRightBar />}
 			</div>
 		</div>
 	);
