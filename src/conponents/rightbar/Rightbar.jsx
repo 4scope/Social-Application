@@ -1,11 +1,13 @@
-import "./rightbar.css";
-import Online from "../online/Online";
-import { Users } from "../../dummyData";
+import './rightbar.css';
+import Online from '../online/Online';
+import { Users } from '../../dummyData';
+import { Home } from '@mui/icons-material';
+import Userfriend from '../userFriend/Userfriend';
 
 const Rightbar = () => {
-	return (
-		<div className="rightbar">
-			<div className="rightbarWrapper">
+	const HomeRightBar = ({ profile }) => {
+		return (
+			<>
 				<div className="birthdayContainer">
 					<img
 						className="birthdayImg"
@@ -39,6 +41,42 @@ const Rightbar = () => {
 						return <Online key={u.id} user={u} />;
 					})}
 				</ul>
+			</>
+		);
+	};
+
+	const ProfileRightBar = () => {
+		return (
+			<>
+				<h4 className="rightTitle">User Information</h4>
+				<div className="rightbarInfo">
+					<div className="rightbarInfoItems">
+						<span className="rightbarInfoKey">City:</span>
+						<span className="rightbarInfovalue">New York</span>
+					</div>
+					<div className="rightbarInfoItems">
+						<span className="rightbarInfoKey">From:</span>
+						<span className="rightbarInfovalue">Nigeria</span>
+					</div>
+					<div className="rightbarInfoItems">
+						<span className="rightbarInfoKey">Relationship:</span>
+						<span className="rightbarInfovalue">Single</span>
+					</div>
+				</div>
+				<h4 className="rightbarTitle">User Friends</h4>
+				<div className="rightbarFollowings">
+					{Users.map((u) => {
+						return <Userfriend key={u.id} user={u} />;
+					})}
+				</div>
+			</>
+		);
+	};
+
+	return (
+		<div className="rightbar">
+			<div className="rightbarWrapper">
+				<ProfileRightBar />
 			</div>
 		</div>
 	);
